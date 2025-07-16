@@ -1,74 +1,116 @@
-🚀 Kubernetes Web Apps: Nginx & Apache no Seu Cluster Local! 🌐
-Este projeto demonstra a implantação de duas aplicações web simples – um servidor Nginx e um servidor Apache – em um ambiente Kubernetes local. É uma ótima maneira de entender os conceitos básicos de contêineres, orquestração e como suas aplicações podem viver no Kubernetes!
+```markdown
+# 🚀 Kubernetes Web Apps: Nginx & Apache no Seu Cluster Local! 🌐
 
-✨ O Que Este Projeto Faz?
-Contêineres Docker: Empacota o Nginx e o Apache, juntamente com suas páginas HTML personalizadas, em imagens Docker leves.
+Este projeto demonstra a implantação de **duas aplicações web simples** – um servidor **Nginx** e um servidor **Apache** – em um ambiente **Kubernetes local**.
 
-Orquestração com Kubernetes: Utiliza manifestos YAML para definir como essas aplicações devem ser implantadas, gerenciadas e expostas dentro de um cluster Kubernetes.
+É uma ótima maneira de aprender os conceitos básicos de **contêineres**, **orquestração** e como suas aplicações podem viver no Kubernetes!
 
-Ambiente Local: Tudo configurado para rodar facilmente na sua máquina, ideal para aprendizado e testes.
+---
 
-🛠️ Tecnologias Utilizadas
-Docker: Para construir e gerenciar as imagens dos contêineres.
+## ✨ O Que Este Projeto Faz?
 
-Kubernetes (K8s): O orquestrador de contêineres para gerenciar a implantação.
+- 🐳 **Contêineres Docker:** Empacota o Nginx e o Apache, juntamente com suas páginas HTML personalizadas, em imagens Docker leves.
+- ☸️ **Orquestração com Kubernetes:** Utiliza manifestos YAML para definir como essas aplicações devem ser implantadas, gerenciadas e expostas.
+- 💻 **Ambiente Local:** Tudo configurado para rodar facilmente na sua máquina, ideal para aprendizado e testes.
 
-Nginx: Servidor web leve e de alta performance.
+---
 
-Apache HTTP Server: Servidor web robusto e amplamente utilizado.
+## 🛠️ Tecnologias Utilizadas
 
-YAML: Linguagem de marcação para os manifestos do Kubernetes.
+| Tecnologia     | Descrição |
+|----------------|-----------|
+| 🐳 **Docker**   | Para construir e gerenciar as imagens dos contêineres. |
+| ☸️ **Kubernetes (K8s)** | Orquestrador de contêineres para gerenciar as aplicações. |
+| 🌐 **Nginx**    | Servidor web leve e de alta performance. |
+| 🔥 **Apache HTTP Server** | Servidor web robusto e amplamente utilizado. |
+| 📄 **YAML**     | Linguagem de marcação para os manifestos do Kubernetes. |
 
-🚀 Como Rodar (Passo a Passo)
-Siga estes passos para colocar as aplicações no ar no seu cluster Kubernetes local:
+---
 
-Pré-requisitos:
-Certifique-se de ter o Docker Desktop (com Kubernetes habilitado) ou Minikube instalado e configurado na sua máquina.
+## 🚀 Como Rodar (Passo a Passo)
 
-Clone o Repositório:
+### ✅ Pré-requisitos
 
+- Docker Desktop (com Kubernetes habilitado) **ou** Minikube instalado e configurado.
+
+---
+
+### 📦 1. Clone o Repositório
+
+```bash
 git clone https://github.com/Milleny-pin/Projeto_Kubernetes.git
-cd seu-repositorio
+cd Projeto_Kubernetes
+```
 
-Construa as Imagens Docker:
-Navegue até os diretórios nginx-app e apache-app e construa as imagens:
+---
 
-# Para Nginx
+### 🐳 2. Construa as Imagens Docker
+
+#### Para Nginx
+
+```bash
 cd nginx-app
 docker build -t meu-nginx-app:1.0 .
 cd ..
+```
 
-# Para Apache
+#### Para Apache
+
+```bash
 cd apache-app
 docker build -t meu-apache-app:1.0 .
 cd ..
+```
 
-Certifique-se de que o Docker esteja rodando!
+> Certifique-se de que o Docker esteja rodando! 🐳
 
-Aplique os Manifestos do Kubernetes:
-Com seu contexto Kubernetes configurado para o cluster local, aplique os arquivos YAML:
+---
 
+### ☸️ 3. Aplique os Manifestos do Kubernetes
+
+Com o cluster local ativo, execute:
+
+```bash
 kubectl apply -f kubernetes/nginx-deployment.yaml
 kubectl apply -f kubernetes/apache-deployment.yaml
+```
 
-Verifique as Implantações:
-Confira se os pods e serviços estão rodando:
+---
 
+### 🔍 4. Verifique as Implantações
+
+```bash
 kubectl get deployments
 kubectl get pods
 kubectl get services
+```
 
-Acesse as Aplicações:
+---
 
-Nginx: Acessível via http://localhost:<porta-do-nginx> (verifique a porta do serviço Nginx com kubectl get services).
+### 🌐 5. Acesse as Aplicações
 
-Apache: Acessível via http://localhost:<porta-do-apache> (verifique a porta do serviço Apache com kubectl get services).
+- **Nginx:** Acesse via  
+  `http://localhost:<porta-do-nginx>`
+  
+- **Apache:** Acesse via  
+  `http://localhost:<porta-do-apache>`
 
-Se estiver usando Docker Desktop, as portas NodePort serão mapeadas para o localhost.
+> Use `kubectl get services` para descobrir as portas.  
+> Se estiver usando **Docker Desktop**, as portas do tipo `NodePort` serão mapeadas automaticamente para o `localhost`.
 
-🧹 Limpeza (Opcional)
-Para remover as aplicações do seu cluster:
+---
 
+## 🧹 Limpeza (Opcional)
+
+Remova os recursos do cluster com:
+
+```bash
 kubectl delete -f kubernetes/nginx-deployment.yaml
 kubectl delete -f kubernetes/apache-deployment.yaml
+```
 
+---
+
+### 🐳📦 Feito com Docker, Kubernetes e Café ☕  
+Divirta-se explorando o mundo dos contêineres!
+```
