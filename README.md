@@ -17,13 +17,14 @@ Este projeto demonstra a implantação de **duas aplicações web simples** – 
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Tecnologia     | Descrição |
-|----------------|-----------|
-| 🐳 **Docker**   | Para construir e gerenciar as imagens dos contêineres. |
-| ☸️ **Kubernetes (K8s)** | Orquestrador de contêineres para gerenciar as aplicações. |
-| 🌐 **Nginx**    | Servidor web leve e de alta performance. |
-| 🔥 **Apache HTTP Server** | Servidor web robusto e amplamente utilizado. |
-| 📄 **YAML**     | Linguagem de marcação para os manifestos do Kubernetes. |
+| Tecnologia             | Descrição                                                                 |
+|------------------------|---------------------------------------------------------------------------|
+| 🐳 **Docker**          | Para construir e gerenciar as imagens dos contêineres.                    |
+| ☸️ **Kubernetes (K8s)**| Orquestrador de contêineres para gerenciar as aplicações.                 |
+| 🌐 **Nginx**           | Servidor web leve e de alta performance.                                  |
+| 🔥 **Apache HTTP Server** | Servidor web robusto e amplamente utilizado.                         |
+| 📄 **YAML**            | Linguagem de marcação para os manifestos do Kubernetes.                   |
+
 
 ---
 
