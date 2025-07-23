@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: meu-nginx-app:latest 
+        image: meu-nginx-app:1.0
         ports:
         - containerPort: 80 
