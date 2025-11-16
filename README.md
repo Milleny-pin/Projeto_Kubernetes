@@ -1,117 +1,104 @@
-```markdown
-# 🚀 Kubernetes Web Apps: Nginx & Apache no Seu Cluster Local! 🌐
+<!-- BANNER DO PROJETO -->
+<p align="center">
+  <img src="https://img.shields.io/badge/KUBERNETES-WEB%20APPS-blue?style=for-the-badge&logo=kubernetes" />
+  <img src="https://img.shields.io/badge/DOCKER-CONTAINERS-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+  <img src="https://img.shields.io/badge/NGINX%20%2B%20APACHE-WEB%20SERVERS-green?style=for-the-badge&logo=nginx" />
+</p>
 
-Este projeto demonstra a implantação de **duas aplicações web simples** – um servidor **Nginx** e um servidor **Apache** – em um ambiente **Kubernetes local**.
+<h1 align="center">🚀 Kubernetes Web Apps: Nginx & Apache no Seu Cluster Local! 🌐</h1>
 
-É uma ótima maneira de aprender os conceitos básicos de **contêineres**, **orquestração** e como suas aplicações podem viver no Kubernetes!
+<p align="center">
+Este projeto demonstra a implantação de <b>duas aplicações web simples</b> — uma com <b>Nginx</b> e outra com <b>Apache</b> — executando em um <b>cluster Kubernetes local</b>.
+<br>
+É ideal para treinar conceitos de <b>contêineres</b>, <b>orquestração</b> e <b>deploy cloud-native</b>.
+</p>
 
 ---
 
 ## ✨ O Que Este Projeto Faz?
 
-- 🐳 **Contêineres Docker:** Empacota o Nginx e o Apache, juntamente com suas páginas HTML personalizadas, em imagens Docker leves.
-- ☸️ **Orquestração com Kubernetes:** Utiliza manifestos YAML para definir como essas aplicações devem ser implantadas, gerenciadas e expostas.
-- 💻 **Ambiente Local:** Tudo configurado para rodar facilmente na sua máquina, ideal para aprendizado e testes.
+- 🐳 **Contêineres Docker:** Empacota o Nginx e o Apache com páginas HTML personalizadas.  
+- ☸️ **Orquestração com Kubernetes:** Manifests YAML definem deployments e services.  
+- 💻 **Ambiente Local:** Funciona com Docker Desktop ou Minikube.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Tecnologia             | Descrição                                                                 |
-|------------------------|---------------------------------------------------------------------------|
-| 🐳 **Docker**          | Para construir e gerenciar as imagens dos contêineres.                    |
-| ☸️ **Kubernetes (K8s)**| Orquestrador de contêineres para gerenciar as aplicações.                 |
-| 🌐 **Nginx**           | Servidor web leve e de alta performance.                                  |
-| 🔥 **Apache HTTP Server** | Servidor web robusto e amplamente utilizado.                         |
-| 📄 **YAML**            | Linguagem de marcação para os manifestos do Kubernetes.                   |
-
-
----
-
-## 🚀 Como Rodar (Passo a Passo)
-
-### ✅ Pré-requisitos
-
-- Docker Desktop (com Kubernetes habilitado) **ou** Minikube instalado e configurado.
+| Tecnologia | Descrição |
+|-----------|-----------|
+| 🐳 **Docker** | Criação e gerenciamento das imagens. |
+| ☸️ **Kubernetes (K8s)** | Orquestração dos serviços e pods. |
+| 🌐 **Nginx** | Servidor web leve e rápido. |
+| 🔥 **Apache** | Servidor web robusto e muito utilizado. |
+| 📄 **YAML** | Linguagem usada nos manifests do Kubernetes. |
 
 ---
 
-### 📦 1. Clone o Repositório
+## 🚀 Como Rodar o Projeto
+
+<details>
+  <summary><b>📌 1. Pré-requisitos</b> (clique para expandir)</summary>
+<br>
+
+- Docker Desktop **com Kubernetes habilitado**, ou  
+- Minikube instalado e configurado  
+- Kubectl instalado  
+
+</details>
+
+---
+
+<details>
+  <summary><b>📦 2. Clone o Repositório</b></summary>
+<br>
 
 ```bash
 git clone https://github.com/Milleny-pin/Projeto_Kubernetes.git
 cd Projeto_Kubernetes
-```
-
----
-
-### 🐳 2. Construa as Imagens Docker
-
-#### Para Nginx
-
-```bash
+</details>
+<details> <summary><b>🐳 3. Construa as Imagens Docker</b></summary> <br>
+🔹 Nginx
+bash
+Copiar código
 cd nginx-app
 docker build -t meu-nginx-app:1.0 .
 cd ..
-```
-
-#### Para Apache
-
-```bash
+🔹 Apache
+bash
+Copiar código
 cd apache-app
 docker build -t meu-apache-app:1.0 .
 cd ..
-```
-
-> Certifique-se de que o Docker esteja rodando! 🐳
-
----
-
-### ☸️ 3. Aplique os Manifestos do Kubernetes
-
-Com o cluster local ativo, execute:
-
-```bash
+</details>
+<details> <summary><b>☸️ 4. Aplique os Manifests do Kubernetes</b></summary> <br>
+bash
+Copiar código
 kubectl apply -f kubernetes/nginx-deployment.yaml
 kubectl apply -f kubernetes/apache-deployment.yaml
-```
-
----
-
-### 🔍 4. Verifique as Implantações
-
-```bash
+</details>
+<details> <summary><b>🔍 5. Verifique o Status</b></summary> <br>
+bash
+Copiar código
 kubectl get deployments
 kubectl get pods
 kubectl get services
-```
+</details>
+<details> <summary><b>🌐 6. Acesse as Aplicações</b></summary> <br>
+Nginx:
+http://localhost:<porta-do-nginx>
 
----
+Apache:
+http://localhost:<porta-do-apache>
 
-### 🌐 5. Acesse as Aplicações
+Use kubectl get services para verificar as portas expostas (NodePort).
 
-- **Nginx:** Acesse via  
-  `http://localhost:<porta-do-nginx>`
-  
-- **Apache:** Acesse via  
-  `http://localhost:<porta-do-apache>`
+</details>
+🧹 Limpeza do Cluster
+Remova tudo facilmente:
 
-> Use `kubectl get services` para descobrir as portas.  
-> Se estiver usando **Docker Desktop**, as portas do tipo `NodePort` serão mapeadas automaticamente para o `localhost`.
-
----
-
-## 🧹 Limpeza (Opcional)
-
-Remova os recursos do cluster com:
-
-```bash
+bash
+Copiar código
 kubectl delete -f kubernetes/nginx-deployment.yaml
 kubectl delete -f kubernetes/apache-deployment.yaml
-```
-
----
-
-### 🐳📦 Feito com Docker, Kubernetes e Café ☕  
-Divirta-se explorando o mundo dos contêineres!
-```
+<p align="center"> 🐳☸️ Feito com <b>Docker</b>, <b>Kubernetes</b> e muito <b>Café ☕</b> <br> Aproveite para explorar ainda mais o mundo Cloud Native! </p> ```
